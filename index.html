@@ -11,140 +11,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-    /* ================== LOCAL GIF BACKGROUND ================== */
-    .background-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0; /* Behind content */
-        background: url('Matrix.gif') no-repeat center center; 
-        background-size: cover;
-        filter: blur(4px) brightness(0.6); /* Soft blur + darker for readability */
-        opacity: 0.7;
-        pointer-events: none; /* Doesn't block clicks */
-    }
-
-    /* ================== Base Styles ================== */
-    body {
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #333;
-        background-color: #0a3863; /* fallback color */
-    }
-
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 80px 20px;
-        text-align: center;
-        position: relative; /* Keep content above background */
-        z-index: 1;
-    }
-
-    .subtitle {
-        color: #3498db;
-        font-weight: 700;
-        letter-spacing: 3px;
-        font-size: 0.8rem;
-    }
-
-    h1 {
-        font-size: 2.8rem;
-        margin: 10px 0 20px;
-        color: #ffffff;
-        text-transform: uppercase;
-    }
-
-    .intro-text {
-        max-width: 700px;
-        margin: 0 auto 60px;
-        font-size: 1.1rem;
-        color: #ffffff;
-    }
-
-    .team-grid {
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        flex-wrap: wrap;
-    }
-
-    .profile-card {
-        background: rgba(177, 255, 255, 0.9); /* Semi-transparent to show background */
-        padding: 40px 30px;
-        border-radius: 20px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        width: 300px;
-        transition: all 0.3s ease;
-        border-top: 5px solid transparent;
-        position: relative;
-        z-index: 1;
-    }
-
-    .profile-card:hover {
-        transform: translateY(-15px);
-        border-top: 5px solid #199bd3;
-    }
-
-    .image-container {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto 25px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 4px solid #000000;
-    }
-
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .image-container img:hover {
-        transform: scale(1.1);
-    }
-
-    .role {
-        color: #3498db;
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-    }
-
-    .description {
-        font-size: 0.95rem;
-        color: #5e6161;
-        margin-bottom: 25px;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .social-links a {
-        color: #9b9d9f;
-        font-size: 1.4rem;
-        transition: color 0.3s ease;
-        text-decoration: none;
-    }
-
-    .social-links a:hover .fa-instagram { color: #e1306c; }
-    .social-links a:hover .fa-envelope { color: #3498db; }
-    .social-links a:hover .fa-whatsapp { color: #00a03b; }
-    </style>
+    <!-- Your CSS File -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Local GIF Background Overlay -->
+<!-- MATRIX BACKGROUND -->
 <div class="background-overlay"></div>
 
 <section class="about-section">
@@ -153,7 +26,7 @@
         <h1>MEET THE CREATORS</h1>
 
         <p class="intro-text">
-            We are a passionate team dedicated to building intuitive and engaging web experiences. 
+            We are a passionate team dedicated to building intuitive and engaging web experiences.
             Together, we transform ideas into digital realities.
         </p>
 
@@ -161,57 +34,65 @@
 
             <!-- Profile 1 -->
             <div class="profile-card">
-                <div class="image-container">
-                    <a href="Wanie.jpeg" target="_blank">
-                        <img src="Wanie.jpeg" alt="Wanie">
-                    </a>
-                </div>
+                <div class="profile-card-content">
 
-                <h3>NURSYAZWANIE BINTI JAIMI</h3>
-                <p class="role">Main Page Creator</p>
-                <p class="description">
-                    Crafts the welcoming gateway, ensuring every user landing 
-                    on the home page feels right at home.
-                </p>
+                    <div class="image-container">
+                        <a href="Wanie.jpeg" target="_blank">
+                            <img src="Wanie.jpeg" alt="Wanie">
+                        </a>
+                    </div>
 
-                <div class="social-links">
-                    <a href="https://instagram.com/username" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:anya@example.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/60123456789" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                    <h3>NURSYAZWANIE BINTI JAIMI</h3>
+                    <p class="role">Main Page Creator</p>
+                    <p class="description">
+                        Crafts the welcoming gateway, ensuring every user landing
+                        on the home page feels right at home.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com/username" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:anya@example.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/60123456789" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
             <!-- Profile 2 -->
             <div class="profile-card">
-                <div class="image-container">
-                    <a href="Najjwa.jpeg" target="_blank">
-                        <img src="Najjwa.jpeg" alt="Najjwa">
-                    </a>
-                </div>
+                <div class="profile-card-content">
 
-                <h3>NAJJWA AQILLA BINTI MOHD KHAIRI</h3>
-                <p class="role">About Us Page Creator</p>
-                <p class="description">
-                    Defines our identity, telling our story with clarity and style 
-                    to build lasting trust with our audience.
-                </p>
+                    <div class="image-container">
+                        <a href="Najjwa.jpeg" target="_blank">
+                            <img src="Najjwa.jpeg" alt="Najjwa">
+                        </a>
+                    </div>
 
-                <div class="social-links">
-                    <a href="https://instagram.com/username" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:ben@example.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/60123456789" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                    <h3>NAJJWA AQILLA BINTI MOHD KHAIRI</h3>
+                    <p class="role">About Us Page Creator</p>
+                    <p class="description">
+                        Defines our identity, telling our story with clarity and style
+                        to build lasting trust with our audience.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com/username" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:ben@example.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/60123456789" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
@@ -220,5 +101,4 @@
 </section>
 
 </body>
-
 </html>
