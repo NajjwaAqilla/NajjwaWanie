@@ -1,106 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Us | Meet Our Team</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ================== MATRIX GIF BACKGROUND ================== */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("Matrix.gif") no-repeat center center;
+    background-size: cover;
+    filter: blur(4px) brightness(0.6);
+    z-index: -2;
+}
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+/* ================== BASE STYLES ================== */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a3863;
+}
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
 
-    <!-- Your CSS File -->
-    <link rel="stylesheet" href="style.css">
-</head>
+.subtitle {
+    color: hwb(174 2% 0%);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
 
-<body>
+h1 {
+    font-size: 2.8rem;
+    margin: 10px 0 20px;
+    color: #00ffd5;
+    text-transform: uppercase;
+}
 
-<!-- MATRIX BACKGROUND -->
-<div class="background-overlay"></div>
+.intro-text {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
 
-<section class="about-section">
-    <div class="container">
-        <span class="subtitle">ABOUT US</span>
-        <h1>MEET OUR TEAM</h1>
+/* ================== BACK BUTTON ================== */
+.back-button {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
 
-        <p class="intro-text">
-            We are a passionate team dedicated to building intuitive and engaging web experiences.
-            Together, we transform ideas into digital realities.
-        </p>
+.back-button button {
+    background: #00ff9d;
+    color: #0a3863;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,255,157,0.4);
+}
 
-        <div class="team-grid">
+.back-button button:hover {
+    background: #00f0ff;
+    box-shadow: 0 8px 20px rgba(0,255,157,0.6);
+    transform: translateY(-2px);
+}
 
-            <!-- Profile 1 -->
-            <div class="profile-card">
-                <div class="profile-card-content">
+/* ================== GRID ================== */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
 
-                    <div class="image-container">
-                        <a href="Wanie.jpeg" target="_blank">
-                            <img src="Wanie.jpeg" alt="Wanie">
-                        </a>
-                    </div>
+/* ================== PROFILE CARD ================== */
+.profile-card {
+    position: relative;
+    width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 3px; /* space for moving border */
+}
 
-                    <h3>NURSYAZWANIE BINTI JAIMI</h3>
-                    <p class="role">Main Page Creator</p>
-                    <p class="description">
-                        Crafts the welcoming gateway, ensuring every user landing
-                        on the home page feels right at home.
-                    </p>
+/* Inner Card Content */
+.profile-card-content {
+    background: #02988b;
+    border-radius: 17px;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
 
-                    <div class="social-links">
-                        <a href="https://instagram.com/username" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="mailto:anya@example.com">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://wa.me/60123456789" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+/* Hover lift effect */
+.profile-card:hover .profile-card-content {
+    transform: translateY(-15px);
+}
 
-                </div>
-            </div>
+/* ================== MOVING NEON LIGHT ================== */
+/* Smooth Moving Light - slower version */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0,255,157,0) 0%, rgb(65, 255, 255) 50%, rgba(0,255,157,0) 100%);
+    animation: moveLight 6s linear infinite; /* slower: 6 seconds per loop */
+}
 
-            <!-- Profile 2 -->
-            <div class="profile-card">
-                <div class="profile-card-content">
+/* Keyframes: translate gradient around edges smoothly */
+@keyframes moveLight {
+    0%   { transform: translateX(-100%) translateY(0); }
+    25%  { transform: translateX(0%) translateY(-100%); }
+    50%  { transform: translateX(100%) translateY(0); }
+    75%  { transform: translateX(0%) translateY(100%); }
+    100% { transform: translateX(-100%) translateY(0); }
+}
 
-                    <div class="image-container">
-                        <a href="Najjwa.jpeg" target="_blank">
-                            <img src="Najjwa.jpeg" alt="Najjwa">
-                        </a>
-                    </div>
+/* ================== IMAGE ================== */
+.image-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #000;
+}
 
-                    <h3>NAJJWA AQILLA BINTI MOHD KHAIRI</h3>
-                    <p class="role">About Us Page Creator</p>
-                    <p class="description">
-                        Defines our identity, telling our story with clarity and style
-                        to build lasting trust with our audience.
-                    </p>
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-                    <div class="social-links">
-                        <a href="https://instagram.com/username" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="mailto:ben@example.com">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://wa.me/60123456789" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+.image-container img:hover {
+    transform: scale(1.1);
+}
 
-                </div>
-            </div>
+/* ================== TEXT ================== */
+.role {
+    color: #00ffd0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
 
-        </div>
-    </div>
-</section>
+.description {
+    font-size: 0.95rem;
+    color: #faf9f9;
+    margin-bottom: 25px;
+}
 
-</body>
-</html>
+/* ================== SOCIAL LINKS ================== */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
+.social-links a {
+    color: #555;
+    font-size: 1.4rem;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
 
+.social-links a:hover .fa-instagram { color: #ff3075; }
+.social-links a:hover .fa-envelope { color: #3fb2ff; }
+.social-links a:hover .fa-whatsapp { color: #00ff5e; }
