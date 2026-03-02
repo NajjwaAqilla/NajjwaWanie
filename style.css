@@ -1,10 +1,22 @@
-/* Base Styles */
+/* ================== MATRIX GIF BACKGROUND ================== */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("Matrix.gif") no-repeat center center;
+    background-size: cover;
+    filter: blur(4px) brightness(0.6);
+    z-index: -2;
+}
+
+/* ================== BASE STYLES ================== */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0a3863;
     margin: 0;
     padding: 0;
-    color: #333;
+    background-color: #0a3863;
 }
 
 .container {
@@ -12,10 +24,12 @@ body {
     margin: 0 auto;
     padding: 80px 20px;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .subtitle {
-    color: #3498db;
+    color: hwb(174 2% 0%);
     font-weight: 700;
     letter-spacing: 3px;
     font-size: 0.8rem;
@@ -24,7 +38,7 @@ body {
 h1 {
     font-size: 2.8rem;
     margin: 10px 0 20px;
-    color: #ffffff;
+    color: #00ffd5;
     text-transform: uppercase;
 }
 
@@ -35,7 +49,7 @@ h1 {
     color: #ffffff;
 }
 
-/* Grid Layout */
+/* ================== GRID ================== */
 .team-grid {
     display: flex;
     justify-content: center;
@@ -43,37 +57,69 @@ h1 {
     flex-wrap: wrap;
 }
 
-/* Card Styling */
+/* ================== PROFILE CARD ================== */
+/* Profile Card Base */
 .profile-card {
-    background: #a2e6ff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    position: relative;
     width: 300px;
-    transition: all 0.3s ease;
-    border-top: 5px solid transparent;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 3px; /* space for moving border */
 }
 
-.profile-card:hover {
+/* Inner Card */
+.profile-card-content {
+    background: #02988b;
+    border-radius: 17px;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+/* Hover lift */
+.profile-card:hover .profile-card-content {
     transform: translateY(-15px);
-    border-top: 5px solid #199bd3;
 }
 
+/* Smooth Moving Light - slower version */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0,255,157,0) 0%, rgb(65, 255, 255) 50%, rgba(0,255,157,0) 100%);
+    animation: moveLight 6s linear infinite; /* slower: 6 seconds per loop */
+}
+
+/* Keyframes: translate gradient around edges smoothly */
+@keyframes moveLight {
+    0%   { transform: translateX(-100%) translateY(0); }
+    25%  { transform: translateX(0%) translateY(-100%); }
+    50%  { transform: translateX(100%) translateY(0); }
+    75%  { transform: translateX(0%) translateY(100%); }
+    100% { transform: translateX(-100%) translateY(0); }
+}
+
+/* ================== IMAGE ================== */
 .image-container {
     width: 140px;
     height: 140px;
     margin: 0 auto 25px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #000000;
+    border: 4px solid #000;
 }
 
-/* Clickable image effect */
 .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
@@ -81,8 +127,9 @@ h1 {
     transform: scale(1.1);
 }
 
+/* ================== TEXT ================== */
 .role {
-    color: #3498db;
+    color: #00ffd0;
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: 15px;
@@ -90,11 +137,11 @@ h1 {
 
 .description {
     font-size: 0.95rem;
-    color: #7f8c8d;
+    color: #faf9f9;
     margin-bottom: 25px;
 }
 
-/* Social Icon Links */
+/* ================== SOCIAL LINKS ================== */
 .social-links {
     display: flex;
     justify-content: center;
@@ -102,13 +149,12 @@ h1 {
 }
 
 .social-links a {
-    color: #bdc3c7;
+    color: #555;
     font-size: 1.4rem;
-    transition: color 0.3s ease;
+    transition: 0.3s ease;
     text-decoration: none;
 }
 
-/* Brand Colors on Hover */
-.social-links a:hover .fa-instagram { color: #e1306c; }
-.social-links a:hover .fa-envelope { color: #3498db; }
-.social-links a:hover .fa-whatsapp { color: #00a03b; }
+.social-links a:hover .fa-instagram { color: #ff3075; }
+.social-links a:hover .fa-envelope { color: #3fb2ff; }
+.social-links a:hover .fa-whatsapp { color: #00ff5e; }
