@@ -49,6 +49,34 @@ h1 {
     color: #ffffff;
 }
 
+/* ================== BACK BUTTON ================== */
+.back-button {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.back-button button {
+    background: #00ff9d;
+    color: #0a3863;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,255,157,0.4);
+}
+
+.back-button button:hover {
+    background: #00f0ff;
+    box-shadow: 0 8px 20px rgba(0,255,157,0.6);
+    transform: translateY(-2px);
+}
+
 /* ================== GRID ================== */
 .team-grid {
     display: flex;
@@ -58,7 +86,6 @@ h1 {
 }
 
 /* ================== PROFILE CARD ================== */
-/* Profile Card Base */
 .profile-card {
     position: relative;
     width: 300px;
@@ -67,7 +94,7 @@ h1 {
     padding: 3px; /* space for moving border */
 }
 
-/* Inner Card */
+/* Inner Card Content */
 .profile-card-content {
     background: #02988b;
     border-radius: 17px;
@@ -78,11 +105,12 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-/* Hover lift */
+/* Hover lift effect */
 .profile-card:hover .profile-card-content {
     transform: translateY(-15px);
 }
 
+/* ================== MOVING NEON LIGHT ================== */
 /* Smooth Moving Light - slower version */
 .profile-card::before {
     content: "";
